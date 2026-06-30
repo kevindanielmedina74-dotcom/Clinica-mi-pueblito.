@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pacientes - Clínica Mi Pueblito</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div id="loader"><div class="loader-inner"><img src="IMAGENES/LOGO12.png" alt="Clínica Mi Pueblito" class="loader-logo" /><p>Clínica Mi Pueblito</p></div></div>
+  <button id="btnTop"><i class="fas fa-arrow-up"></i></button>
+
+  <nav class="navbar">
+    <div class="nav-brand"><span class="cross-icon">+</span> Clínica Mi Pueblito</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="pasientes.html" class="active">Pacientes</a></li>
+      <li><a href="contactos.html">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle"><i class="fas fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <section class="page-hero animate-banner">
+    <h1>Registro de Pacientes</h1>
+    <p>Registra y consulta pacientes de la clínica</p>
+  </section>
+
+  <section class="pacientes-section">
+    <div class="form-container slide-left">
+      <h2><i class="fas fa-user-plus"></i> Nuevo Paciente</h2>
+      <form id="formPaciente" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombres <span class="req">*</span></label>
+            <input type="text" id="nombres" placeholder="Ej: Juan Carlos"/>
+            <span class="msg-error" id="err-nombres"></span>
+          </div>
+          <div class="form-group">
+            <label>Apellidos <span class="req">*</span></label>
+            <input type="text" id="apellidos" placeholder="Ej: Pérez López"/>
+            <span class="msg-error" id="err-apellidos"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Cédula <span class="req">*</span></label>
+            <input type="text" id="cedula" placeholder="0000000000" inputmode="numeric" pattern="\d*" oninput="this.value=this.value.replace(/\D/g,'')" />
+            <span class="msg-error" id="err-cedula"></span>
+          </div>
+          <div class="form-group">
+            <label>Fecha de Nacimiento <span class="req">*</span></label>
+            <input type="date" id="fechaNac"/>
+            <span class="msg-error" id="err-fechaNac"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Género <span class="req">*</span></label>
+            <select id="genero">
+              <option value="">Seleccionar...</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+            </select>
+            <span class="msg-error" id="err-genero"></span>
+          </div>
+          <div class="form-group">
+            <label>Teléfono <span class="req">*</span></label>
+            <input type="tel" id="telefono" placeholder="0999999999" />
+            <span class="msg-error" id="err-telefono"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Correo Electrónico</label>
+            <input type="email" id="correo" placeholder="correo@ejemplo.com"/>
+            <span class="msg-error" id="err-correo"></span>
+          </div>
+          <div class="form-group">
+            <label>Especialidad Requerida <span class="req">*</span></label>
+            <select id="especialidad">
+              <option value="">Seleccionar...</option>
+              <option>Medicina General</option>
+              <option>Pediatría</option>
+              <option>Cardiología</option>
+              <option>Neurología</option>
+              <option>Traumatología</option>
+              <option>Laboratorio</option>
+              <option>Emergencias</option>
+            </select>
+            <span class="msg-error" id="err-especialidad"></span>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Dirección</label>
+          <input type="text" id="direccion" placeholder="Calle, barrio, ciudad"/>
+        </div>
+        <div class="form-group full">
+          <label>Motivo de Consulta <span class="req">*</span></label>
+          <textarea id="motivo" rows="3" placeholder="Describe brevemente el motivo de tu visita..."></textarea>
+          <span class="msg-error" id="err-motivo"></span>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Guardar Paciente</button>
+          <button type="button" class="btn-outline" onclick="limpiarForm()"><i class="fas fa-redo"></i> Limpiar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- LISTA DE PACIENTES -->
+    <div class="lista-container admin-table">
+      <div class="lista-header">
+        <h2><i class="fas fa-list"></i> Pacientes Registrados</h2>
+        <div class="lista-actions">
+          <div class="buscar-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="buscarPaciente" placeholder="Buscar por nombre..."/>
+            <button type="button" class="btn-search" onclick="ejecutarBusqueda()"><i class="fas fa-search"></i></button>
+            <button type="button" class="btn-clear" onclick="limpiarBusqueda()"><i class="fas fa-times"></i></button>
+          </div>
+          <button type="button" class="btn-excel" onclick="exportarExcel()"><i class="fas fa-file-excel"></i> Excel</button>
+        </div>
+      </div>
+      <div id="contadorPacientes" class="contador-badge">0 pacientes registrados</div>
+      <div id="tablaPacientes" class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre Completo</th>
+              <th>Cédula</th>
+              <th>Género</th>
+              <th>Teléfono</th>
+              <th>Especialidad</th>
+              <th>Fecha Registro</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="bodyPacientes">
+            <tr id="filaVacia"><td colspan="8" class="empty-row"><i class="fas fa-user-slash"></i><br/>No hay pacientes registrados aún.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENSAJE MÓVIL: SOLO COMPUTADORA VE LISTA -->
+  <section class="pacientes-section" style="padding-top:0">
+    <div class="admin-msg">
+      <i class="fas fa-laptop"></i>
+      <h3>Lista de Pacientes</h3>
+      <p>La lista de pacientes registrados solo está disponible en computadora.<br/>Desde tu móvil puedes registrar nuevos pacientes usando el formulario de arriba.</p>
+    </div>
+  </section>
+
+  <!-- MODAL VER PACIENTE -->
+  <div id="modalPaciente" class="modal-overlay">
+    <div class="modal-box modal-large">
+      <button class="modal-close" onclick="cerrarModalPaciente()"><i class="fas fa-times"></i></button>
+      <div class="modal-icon"><i class="fas fa-user-circle"></i></div>
+      <h3 id="mp-nombre"></h3>
+      <div class="detalle-grid" id="detallePaciente"></div>
+      <button class="btn-primary" onclick="cerrarModalPaciente()">Cerrar</button>
+    </div>
+  </div>
+
+  <div id="modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-icon"><i class="fas fa-info-circle"></i></div>
+      <h3 id="modal-title"></h3>
+      <p id="modal-body"></p>
+      <button class="btn-primary" onclick="closeModal()">Entendido</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div><h4><span class="cross-icon">+</span> Clínica Mi Pueblito</h4><p>Tu salud, nuestra misión.</p></div>
+      <div><h4>Enlaces</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="pasientes.html">Pacientes</a></li><li><a href="contactos.html">Contacto</a></li></ul></div>
+      <div><h4>Contacto</h4><p><i class="fas fa-phone"></i> 98022307</p><p><i class="fas fa-envelope"></i> info@clinicamipueblito.com</p></div>
+    </div>
+    <div class="footer-bottom">© 2024 Clínica Mi Pueblito. Todos los derechos reservados.</div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

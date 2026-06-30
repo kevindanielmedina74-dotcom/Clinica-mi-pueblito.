@@ -1,0 +1,7 @@
+*.descargar
+*.gz
+Drop _ Netlify_files/
+google*.html
+.DS_Store
+Thumbs.db
+node_modules/

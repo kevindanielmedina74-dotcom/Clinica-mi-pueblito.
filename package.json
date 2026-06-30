@@ -1,0 +1,9 @@
+{
+  "name": "clinica-mi-pueblito",
+  "version": "1.0.0",
+  "description": "Sitio web de Clínica Mi Pueblito",
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "^8.0.0"
+  }
+}

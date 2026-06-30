@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kevindanielmedina74-dotcom.github.io/Clinica-mi-Pueblito/sitemap.xml

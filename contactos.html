@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto - Clínica Mi Pueblito</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div id="loader"><div class="loader-inner"><img src="IMAGENES/LOGO12.png" alt="Clínica Mi Pueblito" class="loader-logo" /><p>Clínica Mi Pueblito</p></div></div>
+  <button id="btnTop"><i class="fas fa-arrow-up"></i></button>
+
+  <nav class="navbar">
+    <div class="nav-brand"><span class="cross-icon">+</span> Clínica Mi Pueblito</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="pasientes.html">Pacientes</a></li>
+      <li><a href="contactos.html" class="active">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle"><i class="fas fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <section class="page-hero animate-banner">
+    <h1>Contáctanos</h1>
+    <p>Estamos aquí para atenderte. Envíanos un mensaje.</p>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-info slide-left">
+      <h2>Información de Contacto</h2>
+      <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><strong>Dirección</strong><p>Av. Principal s/n, Aguanqueterique, La Paz</p></div></div>
+      <div class="info-item"><i class="fas fa-phone"></i><div><strong>Teléfono</strong><p>98022307</p></div></div>
+      <div class="info-item"><i class="fas fa-envelope"></i><div><strong>Correo</strong><p>info@clinicamipueblito.com</p></div></div>
+      <div class="info-item"><i class="fas fa-clock"></i><div><strong>Horario</strong><p>Lun – Sáb: 7:00 am – 8:00 pm<br/>Dom y Emergencias: 24 horas</p></div></div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/50298022307" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <div class="form-container slide-left">
+      <h2><i class="fas fa-paper-plane"></i> Enviar Mensaje</h2>
+      <form id="formContacto" novalidate>
+        <div class="form-group">
+          <label>Nombre completo <span class="req">*</span></label>
+          <input type="text" id="c-nombre" placeholder="Tu nombre"/>
+          <span class="msg-error" id="err-c-nombre"></span>
+        </div>
+        <div class="form-group">
+          <label>Asunto <span class="req">*</span></label>
+          <input type="text" id="c-asunto" placeholder="¿En qué podemos ayudarte?"/>
+          <span class="msg-error" id="err-c-asunto"></span>
+        </div>
+        <div class="form-group">
+          <label>Mensaje <span class="req">*</span></label>
+          <textarea id="c-mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+          <span class="msg-error" id="err-c-mensaje"></span>
+        </div>
+        <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Enviar Mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-icon"><i class="fas fa-info-circle"></i></div>
+      <h3 id="modal-title"></h3>
+      <p id="modal-body"></p>
+      <button class="btn-primary" onclick="closeModal()">Entendido</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div><h4><span class="cross-icon">+</span> Clínica Mi Pueblito</h4><p>Tu salud, nuestra misión.</p></div>
+      <div><h4>Enlaces</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="pasientes.html">Pacientes</a></li><li><a href="contactos.html">Contacto</a></li></ul></div>
+      <div><h4>Contacto</h4><p><i class="fas fa-phone"></i> 98022307</p><p><i class="fas fa-envelope"></i> info@clinicamipueblito.com</p></div>
+    </div>
+    <div class="footer-bottom">© 2024 Clínica Mi Pueblito. Todos los derechos reservados.</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="vMMOk35KpcfPw3G9_oFYmYeRWacnl94WuPSEQcABQ1k" />
+  <title>Clínica Mi Pueblito - Tu Salud, Nuestra Misión</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="IMAGENES/LOGO12.png" alt="Clínica Mi Pueblito" class="loader-logo" />
+      <p>Clínica Mi Pueblito</p>
+    </div>
+  </div>
+
+  <!-- BOTÓN VOLVER ARRIBA -->
+  <button id="btnTop" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="cross-icon">+</span> Clínica Mi Pueblito
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="pasientes.html">Pasientes</a></li>
+      <li><a href="contactos.html">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" title="Cambiar tema"><i class="fas fa-moon"></i></button>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- HERO / BANNER -->
+  <section class="hero" id="inicio">
+    <div class="hero-content animate-banner">
+      <span class="hero-eyebrow">Bienvenido a</span>
+      <h1>Clínica Mi Pueblito</h1>
+      <p>Atención médica de calidad con tecnología moderna y trato humano. Tu salud es nuestra prioridad.</p>
+      <div class="hero-buttons">
+        <a href="pasientes.html" class="btn-primary">Registrar Paciente</a>
+        <a href="servicios.html" class="btn-outline">Ver Servicios</a>
+      </div>
+    </div>
+    <div class="hero-image animate-banner-delay">
+      <div class="hero-card">
+        <img src="IMAGENES/LOGO12.png" alt="Clínica Mi Pueblito" class="hero-logo" />
+        <span>Clínica Mi Pueblito</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓDIGO QR -->
+  <section class="qr-section">
+    <div class="qr-content">
+      <div>
+        <span class="section-eyebrow">Escanea y visita</span>
+        <h2>Abre esta página en tu teléfono</h2>
+        <p>Escanea el código QR para cargar automáticamente la página de inicio de Clínica Mi Pueblito en tu dispositivo móvil.</p>
+      </div>
+      <div class="qr-box">
+        <img id="qrCodeImage" src="" alt="Código QR Clínica Mi Pueblito" />
+        <p>Escanea con tu cámara o app de QR.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉDICO DESTACADO -->
+  <section class="doctor-section">
+    <div class="doctor-card">
+      <div class="doctor-image">
+        <img src="IMAGENES/DANIEL.png" alt="Dr. Daniel" />
+      </div>
+      <div class="doctor-info">
+        <span class="section-eyebrow">Atención de Excelencia</span>
+        <h2>Conoce al Dr. Daniel</h2>
+        <p>Uno de los mejores médicos de la clínica, con años de experiencia en atención personalizada y diagnósticos precisos. Su compromiso es brindar cuidado humano y profesional en cada consulta.</p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Atención cálida y profesional</li>
+          <li><i class="fas fa-check-circle"></i> Experto en diagnóstico y tratamiento</li>
+          <li><i class="fas fa-check-circle"></i> Valores de confianza y respeto</li>
+        </ul>
+        <a href="contactos.html" class="btn-primary">Solicitar Consulta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTADORES -->
+  <section class="counters">
+    <div class="counter-item">
+      <i class="fas fa-user-injured"></i>
+      <span class="count" data-target="200">0</span>
+      <p>Pacientes Atendidos</p>
+    </div>
+    <div class="counter-item">
+      <i class="fas fa-user-md"></i>
+      <span class="count" data-target="15">0</span>
+      <p>Médicos Especialistas</p>
+    </div>
+    <div class="counter-item">
+      <i class="fas fa-calendar-check"></i>
+      <span class="count" data-target="50">0</span>
+      <p>Consultas Diarias</p>
+    </div>
+    <div class="counter-item">
+      <i class="fas fa-award"></i>
+      <span class="count" data-target="10">0</span>
+      <p>Años de Experiencia</p>
+    </div>
+  </section>
+
+  <!-- SERVICIOS TARJETAS -->
+  <section class="services-preview">
+    <h2 class="section-title">Nuestros Módulos</h2>
+    <p class="section-sub">Todo lo que necesitas en un solo lugar</p>
+    <div class="cards-grid">
+      <div class="card slide-left">
+        <i class="fas fa-stethoscope"></i>
+        <h3>Consulta General</h3>
+        <p>Atención médica primaria para todas las edades con diagnósticos precisos.</p>
+        <button class="btn-info" onclick="openModal('Consulta General', 'Atención integral con médicos generales disponibles de lunes a sábado de 7am a 8pm.')">Más Información</button>
+      </div>
+      <div class="card slide-left">
+        <i class="fas fa-procedures"></i>
+        <h3>Emergencias</h3>
+        <p>Servicio de urgencias disponible las 24 horas, los 7 días de la semana.</p>
+        <button class="btn-info" onclick="openModal('Emergencias', 'Equipo especializado listo para atender cualquier urgencia médica en todo momento.')">Más Información</button>
+      </div>
+      <div class="card slide-left">
+        <i class="fas fa-x-ray"></i>
+        <h3>Diagnóstico por Imagen</h3>
+        <p>Radiografías, ecografías y más con equipos de última generación.</p>
+        <button class="btn-info" onclick="openModal('Diagnóstico por Imagen', 'Contamos con equipos de rayos X, ultrasonido y tomografía para diagnósticos precisos.')">Más Información</button>
+      </div>
+      <div class="card slide-left">
+        <i class="fas fa-pills"></i>
+        <h3>Farmacia Interna</h3>
+        <p>Medicamentos disponibles directamente en nuestras instalaciones.</p>
+        <button class="btn-info" onclick="openModal('Farmacia Interna', 'Dispensamos los medicamentos recetados por nuestros médicos al mejor precio.')">Más Información</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="gallery-section">
+    <h2 class="section-title">Nuestras Instalaciones</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="IMAGENES/sala-espera.jpg" alt="Sala de espera"/><div class="overlay">Sala de Espera</div></div>
+      <div class="gallery-item"><img src="IMAGENES/consultorio.jpeg" alt="Consultorio"/><div class="overlay">Consultorio</div></div>
+      <div class="gallery-item"><img src="IMAGENES/laboratorio.jpg" alt="Laboratorio"/><div class="overlay">Laboratorio</div></div>
+      <div class="gallery-item"><img src="IMAGENES/EMERGENCIAS.png" alt="Emergencias"/><div class="overlay">Emergencias</div></div>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-icon"><i class="fas fa-info-circle"></i></div>
+      <h3 id="modal-title"></h3>
+      <p id="modal-body"></p>
+      <button class="btn-primary" onclick="closeModal()">Entendido</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div>
+        <h4><span class="cross-icon">+</span> Clínica Mi Pueblito</h4>
+        <p>Tu salud, nuestra misión desde 2014.</p>
+      </div>
+      <div>
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="pasientes.html">Pacientes</a></li>
+          <li><a href="contactos.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><i class="fas fa-phone"></i> +593 99 999 9999</p>
+        <p><i class="fas fa-envelope"></i> info@clinicamipueblito.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> MI Pueblito, LA PAZ</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2024 Clínica Mi Pueblito. Todos los derechos reservados.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
